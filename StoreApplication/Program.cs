@@ -19,6 +19,11 @@ namespace StoreApplication
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
+            builder.Services.AddAuthentication().AddFacebook(option =>
+            {
+                option.AppId = "1176685733593781";
+                option.AppSecret = "3439ca38d536ceea4bf819141a1d266c";
+            });
 
             var app = builder.Build();
 
